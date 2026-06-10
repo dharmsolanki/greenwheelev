@@ -98,7 +98,6 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
 });
- 
 // Shiprocket Webhook
 Route::post('/shiprocket/webhook', [App\Http\Controllers\ShiprocketWebhookController::class, 'handle'])->name('shiprocket.webhook')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
 
@@ -107,4 +106,10 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
     Route::post('/orders/{order}/ship', [App\Http\Controllers\Admin\OrderAdminController::class, 'createShipment'])->name('orders.ship');
     Route::post('/orders/{order}/cancel-shipment', [App\Http\Controllers\Admin\OrderAdminController::class, 'cancelShipment'])->name('orders.cancel-shipment');
     Route::get('/orders/{order}/track', [App\Http\Controllers\Admin\OrderAdminController::class, 'trackShipment'])->name('orders.track');
+});
+
+// Scooter Image Management
+Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function () {
+    Route::delete('/scooters/image/{image}/delete', [App\Http\Controllers\Admin\ScooterAdminController::class, 'deleteImage'])->name('scooters.image.delete');
+    Route::post('/scooters/image/{image}/primary', [App\Http\Controllers\Admin\ScooterAdminController::class, 'setPrimary'])->name('scooters.image.primary');
 });
