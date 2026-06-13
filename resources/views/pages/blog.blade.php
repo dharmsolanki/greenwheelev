@@ -13,7 +13,7 @@
     <div class="grid-3">
       @forelse($posts as $post)
       <div class="blog-card">
-        @if($post->image)<img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}" class="blog-img">@else<div class="blog-img-placeholder">📝</div>@endif
+        @if($post->image)<img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}" class="blog-img">@else<div class="blog-img-placeholder"><i class="fas fa-blog"></i></div>@endif
         <div class="blog-body">
           <div class="blog-cat">{{ $post->category }}</div>
           <h3 class="blog-title"><a href="{{ route('blog.show',$post) }}">{{ $post->title }}</a></h3>
@@ -21,7 +21,7 @@
           <div class="blog-footer">
             <span>{{ $post->author }}</span>
             <span>{{ $post->published_at?->format('d M Y') }}</span>
-            <a href="{{ route('blog.show',$post) }}" class="green-text">Read More →</a>
+            <a href="{{ route('blog.show',$post) }}" class="green-text">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

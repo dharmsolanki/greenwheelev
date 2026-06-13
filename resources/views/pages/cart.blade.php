@@ -3,10 +3,10 @@
 @section('content')
 <section class="section" style="padding-top:90px">
   <div class="section-inner">
-    <h2 class="section-title">🛒 Your Cart</h2>
+    <h2 class="section-title"><i class="fas fa-shopping-cart"></i> Your Cart</h2>
     @if(empty($cart))
     <div style="text-align:center;padding:60px">
-      <div style="font-size:60px;margin-bottom:16px">🛒</div>
+      <div style="font-size:60px;margin-bottom:16px"><i class="fas fa-shopping-cart"></i></div>
       <p style="color:#999;margin-bottom:20px">Cart is empty</p>
       <a href="{{ route('parts.index') }}" class="btn-primary">Shop Spare Parts</a>
     </div>
@@ -23,7 +23,7 @@
             <button onclick="updateQty({{ $id }},{{ $item['qty']+1 }})" class="qty-btn">+</button>
           </div>
           <div style="font-weight:700;color:var(--green)">₹{{ number_format($item['price']*$item['qty']) }}</div>
-          <button onclick="removeItem({{ $id }})" style="background:none;border:none;cursor:pointer;color:#ef4444;font-size:18px">✕</button>
+          <button onclick="removeItem({{ $id }})" style="background:none;border:none;cursor:pointer;color:#ef4444;font-size:18px"><i class="fas fa-times"></i></button>
         </div>
         @endforeach
       </div>
@@ -33,7 +33,7 @@
         <div class="summary-item"><span>Shipping</span><span class="{{ $total>=500?'green-text':'' }}">{{ $total>=500?'FREE':'₹80' }}</span></div>
         @if($total < 500)<div style="font-size:12px;color:#f59e0b;margin-bottom:8px">Add ₹{{ number_format(500-$total) }} more for free shipping!</div>@endif
         <div class="summary-total"><span>Total</span><span>₹{{ number_format($total>=500?$total:$total+80) }}</span></div>
-        <a href="{{ route('checkout') }}" class="btn-primary" style="display:block;text-align:center;margin-top:16px">Proceed to Checkout →</a>
+        <a href="{{ route('checkout') }}" class="btn-primary" style="display:block;text-align:center;margin-top:16px">Proceed to Checkout <i class="fas fa-arrow-right"></i></a>
         <a href="{{ route('parts.index') }}" class="btn-outline" style="display:block;text-align:center;margin-top:8px">Continue Shopping</a>
       </div>
     </div>

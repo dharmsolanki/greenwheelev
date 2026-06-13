@@ -6,8 +6,8 @@
     <div style="margin-bottom:16px"><span class="section-badge">{{ $post->category }}</span></div>
     <h1 style="font-size:30px;font-weight:800;line-height:1.3;margin-bottom:16px">{{ $post->title }}</h1>
     <div style="display:flex;gap:16px;font-size:13px;color:#999;margin-bottom:24px">
-      <span>✍️ {{ $post->author }}</span>
-      <span>📅 {{ $post->published_at?->format('d M Y') }}</span>
+      <span><i class="fas fa-pen"></i> {{ $post->author }}</span>
+      <span><i class="fas fa-calendar"></i> {{ $post->published_at?->format('d M Y') }}</span>
     </div>
     @if($post->image)<img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}" style="width:100%;border-radius:16px;margin-bottom:28px;max-height:400px;object-fit:cover">@endif
     <div class="blog-content">{!! $post->content !!}</div>

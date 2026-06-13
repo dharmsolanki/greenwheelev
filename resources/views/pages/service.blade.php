@@ -5,13 +5,13 @@
 <section class="section">
   <div class="section-inner">
     <div class="grid-3" style="margin-bottom:48px">
-      @foreach([['🔋','Battery Service','Complete battery health check, cell balancing, BMS repair & replacement'],['⚙️','Motor Repair','Hub motor diagnostics, winding repair, bearing replacement & tuning'],['🖥️','Controller Repair','Controller diagnostics, firmware updates & MOSFET replacement'],['🔌','Electrical Check','Complete wiring inspection, charger testing & circuit repair'],['🛞','Mechanical Service','Brake adjustment, suspension service & vehicle inspection'],['📱','Software Update','Vehicle software updates, app connectivity & smart feature calibration']] as [$ico,$name,$desc])
-      <div class="card"><div class="card-icon">{{ $ico }}</div><h3>{{ $name }}</h3><p>{{ $desc }}</p></div>
+      @foreach([['fas fa-battery-three-quarters','Battery Service','Complete battery health check, cell balancing, BMS repair & replacement'],['fas fa-cog','Motor Repair','Hub motor diagnostics, winding repair, bearing replacement & tuning'],['fas fa-microchip','Controller Repair','Controller diagnostics, firmware updates & MOSFET replacement'],['fas fa-bolt','Electrical Check','Complete wiring inspection, charger testing & circuit repair'],['fas fa-wrench','Mechanical Service','Brake adjustment, suspension service & vehicle inspection'],['fas fa-mobile-alt','Software Update','Vehicle software updates, app connectivity & smart feature calibration']] as [$ico,$name,$desc])
+      <div class="card"><div class="card-icon"><i class="{{ $ico }}"></i></div><h3>{{ $name }}</h3><p>{{ $desc }}</p></div>
       @endforeach
     </div>
     <div class="grid-2">
       <div class="form-card">
-        <h3 class="form-title">🔧 Book a Service</h3>
+        <h3 class="form-title"><i class="fas fa-tools"></i> Book a Service</h3>
         <p class="form-sub">Schedule your EV service appointment</p>
         @if(session('success'))<div class="alert-success">{{ session('success') }}</div>@endif
         @if($errors->any())<div class="alert-error">@foreach($errors->all() as $e){{ $e }}<br>@endforeach</div>@endif
@@ -41,12 +41,12 @@
       <div>
         <h3 style="font-size:20px;font-weight:700;margin-bottom:20px">Service Benefits</h3>
         @foreach(['Genuine Parts Only','Certified Technicians','Quick Turnaround (Same day)','30-Day Service Warranty','Transparent Pricing (No hidden costs)'] as $b)
-        <div style="display:flex;gap:12px;margin-bottom:16px"><span style="color:var(--green);font-size:18px">✓</span><span>{{ $b }}</span></div>
+        <div style="display:flex;gap:12px;margin-bottom:16px"><span style="color:var(--green);font-size:18px"><i class="fas fa-check-circle"></i></span><span>{{ $b }}</span></div>
         @endforeach
         <div style="background:var(--green3);border-radius:12px;padding:20px;text-align:center;margin-top:24px">
           <p style="font-size:13px;color:#338a57;margin-bottom:8px">Business Hours</p>
           <p style="font-weight:700;color:#00692e">Mon–Sat: 9:00 AM – 7:00 PM</p>
-          <a href="tel:+917984304504" style="display:inline-block;margin-top:10px;color:var(--green);font-weight:700;text-decoration:none">📞 +91 79843 04504</a>
+          <a href="tel:+917984304504" style="display:inline-block;margin-top:10px;color:var(--green);font-weight:700;text-decoration:none"><i class="fas fa-phone-alt"></i> +91 79843 04504</a>
         </div>
       </div>
     </div>

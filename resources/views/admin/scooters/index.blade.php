@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title','Scooters')
 @section('content')
-<div class="page-actions"><a href="{{ route('admin.scooters.create') }}" class="a-btn">🛵 Add Scooter</a></div>
+<div class="page-actions"><a href="{{ route('admin.scooters.create') }}" class="a-btn"><i class="fas fa-motorcycle"></i> Add Scooter</a></div>
 <div class="admin-card">
   <table class="a-table">
     <thead><tr><th>Icon</th><th>Name</th><th>Category</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>

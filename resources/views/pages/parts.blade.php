@@ -13,7 +13,7 @@
       <form method="GET" action="{{ route('parts.index') }}" style="display:flex;gap:8px">
         @if(request('category'))<input type="hidden" name="category" value="{{ request('category') }}">@endif
         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search parts..." style="padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-size:13px">
-        <button type="submit" class="btn-primary-sm">🔍</button>
+        <button type="submit" class="btn-primary-sm"><i class="fas fa-search"></i></button>
       </form>
     </div>
     <div class="products-grid">
@@ -26,10 +26,10 @@
           @if($part->discount_percent > 0)<div class="discount-badge">{{ $part->discount_percent }}% OFF</div>@endif
           <div class="product-price">₹{{ number_format($part->price) }}<span>₹{{ number_format($part->mrp) }}</span></div>
           <div class="stock-info {{ $part->stock <= 5 ? 'low-stock':'' }}">
-            @if($part->stock > 10) ✅ In Stock @elseif($part->stock > 0) ⚠️ Only {{ $part->stock }} left @else ❌ Out of Stock @endif
+            @if($part->stock > 10) <i class="fas fa-check-circle"></i> In Stock @elseif($part->stock > 0) <i class="fas fa-exclamation-triangle"></i> Only {{ $part->stock }} left @else <i class="fas fa-times-circle"></i> Out of Stock @endif
           </div>
           <div class="product-btns" style="margin-top:10px">
-            <button class="btn-cart" onclick="addToCart({{ $part->id }})">🛒 Add to Cart</button>
+            <button class="btn-cart" onclick="addToCart({{ $part->id }})"><i class="fas fa-cart-plus"></i> Add to Cart</button>
             <a href="{{ route('parts.show',$part) }}" class="btn-outline-sm">Details</a>
           </div>
         </div>
@@ -38,7 +38,7 @@
       @endforelse
     </div>
     <div class="bulk-banner">
-      <span style="font-size:30px">📦</span>
+      <span style="font-size:30px;color:var(--green)"><i class="fas fa-boxes"></i></span>
       <div><h4>Bulk Orders Available</h4><p>Dealers & workshops: contact us for wholesale pricing</p></div>
       <a href="https://wa.me/917984304504?text=Hi!+I+need+bulk+spare+parts+quote." target="_blank" class="btn-primary">WhatsApp for Bulk</a>
     </div>
@@ -48,19 +48,15 @@
 @push('scripts')
 <script>
 function addToCart(id) {
-  const csrf = document.querySelector('meta[name=csrf-token]')?.content;
   fetch('{{ route("cart.add") }}', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf },
-    body: JSON.stringify({ part_id: id, qty: 1 })
-  })
-  .then(r => r.json())
-  .then(d => {
-    if (d.success) {
-      document.getElementById('navCartCount').textContent = d.count;
-      renderCart(d.cart, d.total);
-      showNotification('✅ ' + d.message);
-      openCart();
+    method:'POST',
+    headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},
+    body:JSON.stringify({part_id:id,qty:1})
+  }).then(r=>r.json()).then(d=>{
+    if(d.success){
+      document.getElementById('navCartCount').textContent=d.count;
+      showNotification(d.message);
+      loadCart();
     }
   });
 }

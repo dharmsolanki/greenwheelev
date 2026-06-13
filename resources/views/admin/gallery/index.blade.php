@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title','Gallery Management')
 @section('content')
-<div class="page-actions"><a href="{{ route('admin.gallery.create') }}" class="a-btn">📸 Upload Image</a></div>
+<div class="page-actions"><a href="{{ route('admin.gallery.create') }}" class="a-btn"><i class="fas fa-camera"></i> Upload Image</a></div>
 <div class="admin-card">
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;padding:8px">
     @forelse($images as $img)

@@ -1,14 +1,10 @@
 <nav class="navbar" id="navbar">
     <div class="nav-inner">
-        <a href="{{ route('home') }}" class="logo" style="display:flex;align-items:center;gap:4px;text-decoration:none">
-            <img src="{{ asset('images/logo.png') }}" alt="Green Wheel EV"
-                style="height:50px;width:50px;object-fit:contain;filter:invert(48%) sepia(79%) saturate(476%) hue-rotate(86deg) brightness(95%) contrast(95%);flex-shrink:0">
-            <div style="display:flex;flex-direction:column;justify-content:center;gap:1px">
-                <span style="font-size:16px;font-weight:700;color:#fff;line-height:1;white-space:nowrap">Green Wheel
-                    EV</span>
-                <span
-                    style="font-size:9px;font-weight:500;color:#4aab6d;letter-spacing:.8px;line-height:1;white-space:nowrap">SMOOTH
-                    RIDES, SMART CHOICES</span>
+        <a href="{{ route('home') }}" class="logo">
+            <div class="logo-icon"><i class="fas fa-bolt" style="color:#ffc107"></i></div>
+            <div class="logo-text">
+                <span class="logo-name">Green Wheel EV</span>
+                <span class="logo-sub">SMOOTH RIDES, SMART CHOICES</span>
             </div>
         </a>
         <ul class="nav-links">
@@ -29,7 +25,8 @@
             </li>
             <li>
                 <a href="{{ route('cart.index') }}" class="nav-cart-link">
-                    🛒 <span class="cart-badge" id="navCartCount">{{ count(session()->get('cart', [])) }}</span>
+                    <i class="fas fa-shopping-cart"></i> <span class="cart-badge"
+                        id="navCartCount">{{ count(session()->get('cart', [])) }}</span>
                 </a>
             </li>
             <li><a href="{{ route('contact.index') }}"
@@ -38,15 +35,16 @@
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="{{ route('home') }}">🏠 Home</a>
-        <a href="{{ route('scooters.index') }}">🛵 EV Scooters</a>
-        <a href="{{ route('parts.index') }}">⚙️ Spare Parts</a>
-        <a href="{{ route('service.index') }}">🔧 Service</a>
-        <a href="{{ route('dealership.index') }}">🤝 Dealership</a>
-        <a href="{{ route('blog.index') }}">📝 Blog</a>
-        <a href="{{ route('gallery.index') }}">📸 Gallery</a>
-        <a href="{{ route('about') }}">ℹ️ About</a>
-        <a href="{{ route('contact.index') }}">📍 Contact</a>
-        <a href="{{ route('cart.index') }}">🛒 Cart ({{ count(session()->get('cart', [])) }})</a>
+        <a href="{{ route('home') }}"><i class="fas fa-home"></i> Home</a>
+        <a href="{{ route('scooters.index') }}"><i class="fas fa-motorcycle"></i> EV Scooters</a>
+        <a href="{{ route('parts.index') }}"><i class="fas fa-cogs"></i> Spare Parts</a>
+        <a href="{{ route('service.index') }}"><i class="fas fa-tools"></i> Service</a>
+        <a href="{{ route('dealership.index') }}"><i class="fas fa-handshake"></i> Dealership</a>
+        <a href="{{ route('blog.index') }}"><i class="fas fa-blog"></i> Blog</a>
+        <a href="{{ route('gallery.index') }}"><i class="fas fa-camera"></i> Gallery</a>
+        <a href="{{ route('about') }}"><i class="fas fa-info-circle"></i> About</a>
+        <a href="{{ route('contact.index') }}"><i class="fas fa-map-marker-alt"></i> Contact</a>
+        <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i> Cart
+            ({{ count(session()->get('cart', [])) }})</a>
     </div>
 </nav>

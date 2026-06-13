@@ -2,13 +2,17 @@
     <div class="footer-inner">
         <div class="footer-grid">
             <div class="footer-brand">
-                <div style="margin-bottom:14px">
-                    <img src="{{ asset('images/logo.png') }}" alt="Green Wheel EV"
-                        style="height:52px;width:auto;object-fit:contain">
+                <div class="logo" style="margin-bottom:14px">
+                    <div class="logo-icon"><i class="fas fa-bolt" style="color:#ffc107"></i></div>
+                    <div class="logo-text">
+                        <span class="logo-name">Green Wheel EV</span>
+                        <span class="logo-sub">SMOOTH RIDES, SMART CHOICES</span>
+                    </div>
                 </div>
                 <p>Your trusted destination for electric two-wheelers, service, spare parts & dealership opportunities
                     in Gujarat.</p>
-                <p style="margin-top:12px;font-size:13px">📍 Near Riya Party Plot, Piplag Road, Nadiad, Gujarat</p>
+                <p style="margin-top:12px;font-size:13px"><i class="fas fa-map-marker-alt"></i> Near Riya Party Plot,
+                    Piplag Road, Nadiad, Gujarat</p>
                 <div class="social-links" style="margin-top:14px">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -49,7 +53,7 @@
         </div>
         <div class="footer-bottom">
             <p>© {{ date('Y') }} Green Wheel EV. All rights reserved.</p>
-            <p>Made with ⚡ for a greener India</p>
+            <p>Made with <i class="fas fa-bolt"></i> for a greener India</p>
         </div>
     </div>
 </footer>

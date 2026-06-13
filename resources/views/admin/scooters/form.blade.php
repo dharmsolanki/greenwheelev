@@ -6,7 +6,7 @@
     @csrf @if($scooter->id) @method('PUT') @endif
 
     {{-- Basic Info --}}
-    <h3 style="font-size:15px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0">📋 Basic Info</h3>
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0"><i class="fas fa-clipboard-list"></i> Basic Info</h3>
     <div class="form-grid">
       <div class="form-group"><label>Scooter Name *</label><input name="name" required value="{{ old('name',$scooter->name) }}" placeholder="e.g. EcoRider X1"></div>
       <div class="form-group"><label>Category *</label>
@@ -16,7 +16,7 @@
           @endforeach
         </select></div>
       <div class="form-group"><label>Price (₹) *</label><input type="number" name="price" required value="{{ old('price',$scooter->price) }}" step="100" placeholder="75000"></div>
-      <div class="form-group"><label>Icon (emoji)</label><input name="icon" value="{{ old('icon',$scooter->icon ?? '🛵') }}" placeholder="🛵"></div>
+      <div class="form-group"><label>Icon (emoji)</label><input name="icon" value="{{ old('icon',$scooter->icon ?? '<i class="fas fa-motorcycle"></i>') }}" placeholder="<i class="fas fa-motorcycle"></i>"></div>
       <div class="form-group"><label>Tag/Badge</label><input name="tag" value="{{ old('tag',$scooter->tag) }}" placeholder="e.g. Best Seller, New Launch"></div>
       <div class="form-group"><label>Status</label>
         <select name="is_active"><option value="1" {{ old('is_active',$scooter->is_active??1)?'selected':'' }}>Active</option><option value="0" {{ !old('is_active',$scooter->is_active??1)?'selected':'' }}>Inactive</option></select></div>
@@ -25,7 +25,7 @@
     </div>
 
     {{-- Specifications --}}
-    <h3 style="font-size:15px;font-weight:700;margin:20px 0 16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0">⚡ Specifications</h3>
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0"><i class="fas fa-bolt"></i> Specifications</h3>
     <div class="form-grid">
       <div class="form-group"><label>Range *</label><input name="range" required value="{{ old('range',$scooter->range) }}" placeholder="80 km"></div>
       <div class="form-group"><label>Top Speed *</label><input name="top_speed" required value="{{ old('top_speed',$scooter->top_speed) }}" placeholder="45 km/h"></div>
@@ -35,19 +35,19 @@
     </div>
 
     {{-- Images --}}
-    <h3 style="font-size:15px;font-weight:700;margin:20px 0 16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0">🖼️ Images</h3>
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0"><i class="fas fa-images"></i> Images</h3>
 
     {{-- Existing Images (Edit mode) --}}
     @if($scooter->id && $scooter->images->count() > 0)
     <div style="margin-bottom:20px">
-      <p style="font-size:13px;color:#666;margin-bottom:12px">Existing images — ⭐ click to set primary, ✕ to delete</p>
+      <p style="font-size:13px;color:#666;margin-bottom:12px">Existing images — <i class="fas fa-star"></i> click to set primary, <i class="fas fa-times"></i> to delete</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px" id="existingImages">
         @foreach($scooter->images as $img)
         <div class="img-thumb {{ $img->is_primary?'is-primary':'' }}" id="img-{{ $img->id }}" style="position:relative;border-radius:10px;overflow:hidden;border:2px solid {{ $img->is_primary?'#00a651':'#e0e0e0' }}">
           <img src="{{ asset('storage/'.$img->image_path) }}" style="width:100%;height:110px;object-fit:cover">
           <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);opacity:0;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px" class="img-overlay">
-            <button type="button" onclick="setPrimary({{ $img->id }})" title="Set as Primary" style="background:#00a651;border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px">⭐</button>
-            <button type="button" onclick="deleteImage({{ $img->id }})" title="Delete" style="background:#ef4444;border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px">✕</button>
+            <button type="button" onclick="setPrimary({{ $img->id }})" title="Set as Primary" style="background:#00a651;border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px"><i class="fas fa-star"></i></button>
+            <button type="button" onclick="deleteImage({{ $img->id }})" title="Delete" style="background:#ef4444;border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px"><i class="fas fa-times"></i></button>
           </div>
           @if($img->is_primary)<div style="position:absolute;bottom:0;left:0;right:0;background:#00a651;color:#fff;text-align:center;font-size:10px;padding:3px;font-weight:700">PRIMARY</div>@endif
         </div>
@@ -67,7 +67,7 @@
     <div id="imagePreview" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:12px"></div>
 
     <div style="display:flex;gap:10px;margin-top:20px">
-      <button type="submit" class="a-btn">{{ $scooter->id ? '💾 Update Scooter' : '➕ Add Scooter' }}</button>
+      <button type="submit" class="a-btn">{{ $scooter->id ? '<i class="fas fa-save"></i> Update Scooter' : '<i class="fas fa-plus"></i> Add Scooter' }}</button>
       <a href="{{ route('admin.scooters.index') }}" class="a-btn-outline">Cancel</a>
     </div>
   </form>

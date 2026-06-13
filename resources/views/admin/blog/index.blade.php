@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title','Blog Posts')
 @section('content')
-<div class="page-actions"><a href="{{ route('admin.blog.create') }}" class="a-btn">✍️ New Post</a></div>
+<div class="page-actions"><a href="{{ route('admin.blog.create') }}" class="a-btn"><i class="fas fa-pen"></i> New Post</a></div>
 <div class="admin-card">
   <table class="a-table">
     <thead><tr><th>Title</th><th>Category</th><th>Author</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>

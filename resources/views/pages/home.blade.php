@@ -6,22 +6,22 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">⚡ Gujarat's Trusted EV Partner</div>
+      <div class="hero-badge"><i class="fas fa-bolt"></i> Gujarat's Trusted EV Partner</div>
       <h1>Drive the <span class="highlight">Future</span> with Green Wheel EV</h1>
       <p>Authorized electric scooter sales, professional service, genuine spare parts & dealership opportunities in Nadiad, Gujarat.</p>
       <div class="hero-btns">
-        <a href="{{ route('scooters.index') }}" class="btn-primary">🛵 Explore Scooters</a>
-        <a href="#test-ride" class="btn-outline">🏍️ Book Test Ride</a>
+        <a href="{{ route('scooters.index') }}" class="btn-primary"><i class="fas fa-motorcycle"></i> Explore Scooters</a>
+        <a href="#test-ride" class="btn-outline"><i class="fas fa-route"></i> Book Test Ride</a>
       </div>
       <div class="hero-trust">
-        <div class="trust-item"><span>✅</span> Authorized Center</div>
-        <div class="trust-item"><span>✅</span> Easy Finance</div>
-        <div class="trust-item"><span>✅</span> Genuine Parts</div>
+        <div class="trust-item"><i class="fas fa-check-circle"></i> Authorized Center</div>
+        <div class="trust-item"><i class="fas fa-check-circle"></i> Easy Finance</div>
+        <div class="trust-item"><i class="fas fa-check-circle"></i> Genuine Parts</div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-card">
-        <div class="big-icon">🛵</div>
+        <div class="hero-icon-circle"><i class="fas fa-motorcycle"></i></div>
         <p class="green-text fw-700">100% Electric</p>
         <p class="muted-text">Zero Emissions · Zero Fuel Cost</p>
         <div class="hero-stats">
@@ -43,19 +43,22 @@
     </div>
     <div class="grid-3">
       <a href="{{ route('scooters.index') }}" class="card card-link">
-        <div class="card-icon">🛵</div><h3>EV Sales</h3>
+        <div class="card-icon"><i class="fas fa-motorcycle"></i></div>
+        <h3>EV Sales</h3>
         <p>Wide range of electric scooters with test ride facility & EMI options</p>
-        <span class="card-arrow">Explore →</span>
+        <span class="card-arrow">Explore <i class="fas fa-arrow-right"></i></span>
       </a>
       <a href="{{ route('service.index') }}" class="card card-link">
-        <div class="card-icon">🔩</div><h3>Service & Repair</h3>
+        <div class="card-icon"><i class="fas fa-tools"></i></div>
+        <h3>Service & Repair</h3>
         <p>Battery checks, motor repair, software updates by certified technicians</p>
-        <span class="card-arrow">Book Service →</span>
+        <span class="card-arrow">Book Service <i class="fas fa-arrow-right"></i></span>
       </a>
       <a href="{{ route('parts.index') }}" class="card card-link">
-        <div class="card-icon">⚙️</div><h3>Spare Parts Shop</h3>
+        <div class="card-icon"><i class="fas fa-cogs"></i></div>
+        <h3>Spare Parts Shop</h3>
         <p>Original batteries, controllers, chargers — order online with COD & UPI</p>
-        <span class="card-arrow">Shop Now →</span>
+        <span class="card-arrow">Shop Now <i class="fas fa-arrow-right"></i></span>
       </a>
     </div>
   </div>
@@ -73,9 +76,15 @@
     <div class="grid-3">
       @foreach($scooters as $sc)
       <div class="scooter-card">
-        <div class="scooter-img">{{ $sc->icon }}</div>
+        @if($sc->images->first())
+        <div style="position:relative;overflow:hidden;height:200px">
+          <img src="{{ asset('storage/'.$sc->images->first()->image_path) }}" alt="{{ $sc->name }}" style="width:100%;height:100%;object-fit:cover">
+          @if($sc->tag)<span class="tag-badge" style="position:absolute;top:12px;left:12px">{{ $sc->tag }}</span>@endif
+        </div>
+        @else
+        <div class="scooter-img"><i class="fas fa-motorcycle"></i>@if($sc->tag)<span class="tag-badge" style="position:absolute;top:12px;left:12px">{{ $sc->tag }}</span>@endif</div>
+        @endif
         <div class="scooter-body">
-          @if($sc->tag)<span class="tag-badge">{{ $sc->tag }}</span>@endif
           <h3 class="scooter-name">{{ $sc->name }}</h3>
           <div class="scooter-cat">{{ $sc->category_label }}</div>
           <div class="specs">
@@ -93,7 +102,7 @@
       </div>
       @endforeach
     </div>
-    <div style="text-align:center;margin-top:28px"><a href="{{ route('scooters.index') }}" class="btn-primary">View All Models →</a></div>
+    <div style="text-align:center;margin-top:28px"><a href="{{ route('scooters.index') }}" class="btn-primary">View All Models <i class="fas fa-arrow-right"></i></a></div>
   </div>
 </section>
 @endif
@@ -106,14 +115,14 @@
       <h2 class="section-title">Why Choose Green Wheel EV?</h2>
     </div>
     <div class="grid-4">
-      <div class="card"><div class="card-icon">🏆</div><h3>Authorized Center</h3><p>Official authorized sales & service center for multiple EV brands</p></div>
-      <div class="card"><div class="card-icon">🔧</div><h3>Expert Technicians</h3><p>Certified EV technicians with advanced diagnostic tools</p></div>
-      <div class="card"><div class="card-icon">⚡</div><h3>Genuine Parts</h3><p>100% original spare parts with manufacturer warranty</p></div>
-      <div class="card"><div class="card-icon">💰</div><h3>Easy Finance</h3><p>Low EMI options with fast approval from leading banks</p></div>
-      <div class="card"><div class="card-icon">🔋</div><h3>Battery Experts</h3><p>Specialized battery diagnostics, repair & replacement</p></div>
-      <div class="card"><div class="card-icon">📍</div><h3>Roadside Support</h3><p>24/7 roadside assistance across Gujarat</p></div>
-      <div class="card"><div class="card-icon">🤝</div><h3>Dealership Network</h3><p>Franchise opportunities for entrepreneurs across India</p></div>
-      <div class="card"><div class="card-icon">♻️</div><h3>Eco Friendly</h3><p>Promoting sustainable transport for a greener India</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-award"></i></div><h3>Authorized Center</h3><p>Official authorized sales & service center for multiple EV brands</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-user-cog"></i></div><h3>Expert Technicians</h3><p>Certified EV technicians with advanced diagnostic tools</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><h3>Genuine Parts</h3><p>100% original spare parts with manufacturer warranty</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Easy Finance</h3><p>Low EMI options with fast approval from leading banks</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-battery-three-quarters"></i></div><h3>Battery Experts</h3><p>Specialized battery diagnostics, repair & replacement</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Roadside Support</h3><p>24/7 roadside assistance across Gujarat</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-handshake"></i></div><h3>Dealership Network</h3><p>Franchise opportunities for entrepreneurs across India</p></div>
+      <div class="card"><div class="card-icon"><i class="fas fa-leaf"></i></div><h3>Eco Friendly</h3><p>Promoting sustainable transport for a greener India</p></div>
     </div>
   </div>
 </section>
@@ -127,14 +136,14 @@
         <h2 class="section-title" style="color:#fff">Plan Your EV Purchase</h2>
         <p style="color:#8b949e;font-size:14px;line-height:1.7;margin-bottom:24px">Calculate your monthly EMI. We partner with leading banks for quick approvals with minimal documentation.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span class="feature-tag">✅ Low Down Payment</span>
-          <span class="feature-tag">✅ 12–48 Month Tenure</span>
-          <span class="feature-tag">✅ Fast Approval</span>
-          <span class="feature-tag">✅ No Hidden Charges</span>
+          <span class="feature-tag"><i class="fas fa-check"></i> Low Down Payment</span>
+          <span class="feature-tag"><i class="fas fa-check"></i> 12–48 Month Tenure</span>
+          <span class="feature-tag"><i class="fas fa-check"></i> Fast Approval</span>
+          <span class="feature-tag"><i class="fas fa-check"></i> No Hidden Charges</span>
         </div>
       </div>
       <div class="emi-calc">
-        <h3 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:22px">⚡ EMI Calculator</h3>
+        <h3 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:22px"><i class="fas fa-calculator"></i> EMI Calculator</h3>
         <div class="range-group">
           <div class="range-label"><span>Loan Amount</span><span class="range-val" id="loanAmt">₹80,000</span></div>
           <input type="range" id="rLoan" min="30000" max="200000" step="5000" value="80000">
@@ -166,10 +175,10 @@
         <h2 class="section-title">Book Your Free Test Ride</h2>
         <p style="color:#666;font-size:14.5px;line-height:1.7;margin-bottom:20px">Experience the electric thrill before you buy! No commitment needed. Our experts will guide you through all models.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
-          <li style="display:flex;gap:10px"><span style="color:var(--green)">✓</span><span>Try multiple models in one visit</span></li>
-          <li style="display:flex;gap:10px"><span style="color:var(--green)">✓</span><span>Expert guidance on features</span></li>
-          <li style="display:flex;gap:10px"><span style="color:var(--green)">✓</span><span>No obligation purchase pressure</span></li>
-          <li style="display:flex;gap:10px"><span style="color:var(--green)">✓</span><span>Free EMI consultation</span></li>
+          <li style="display:flex;gap:10px"><span style="color:var(--green)"><i class="fas fa-check"></i></span><span>Try multiple models in one visit</span></li>
+          <li style="display:flex;gap:10px"><span style="color:var(--green)"><i class="fas fa-check"></i></span><span>Expert guidance on features</span></li>
+          <li style="display:flex;gap:10px"><span style="color:var(--green)"><i class="fas fa-check"></i></span><span>No obligation purchase pressure</span></li>
+          <li style="display:flex;gap:10px"><span style="color:var(--green)"><i class="fas fa-check"></i></span><span>Free EMI consultation</span></li>
         </ul>
       </div>
       <div class="form-card">
@@ -205,9 +214,16 @@
     <div class="grid-3">
       @foreach($reviews as $r)
       <div class="testi-card">
-        <div class="testi-stars">@for($i=1;$i<=5;$i++){{ $i<=$r->rating?'★':'☆' }}@endfor</div>
+        <div class="testi-stars">
+          @for($i=1;$i<=5;$i++)
+            <i class="{{ $i<=$r->rating ? 'fas' : 'far' }} fa-star"></i>
+          @endfor
+        </div>
         <p class="testi-text">"{{ $r->review }}"</p>
-        <div class="testi-author"><div class="testi-avatar">👤</div><div><div class="testi-name">{{ $r->name }}</div><div class="testi-loc">{{ $r->location }}</div></div></div>
+        <div class="testi-author">
+          <div class="testi-avatar"><i class="fas fa-user-circle"></i></div>
+          <div><div class="testi-name">{{ $r->name }}</div><div class="testi-loc">{{ $r->location }}</div></div>
+        </div>
       </div>
       @endforeach
     </div>
@@ -229,7 +245,7 @@
         <div class="blog-cat">{{ $post->category }}</div>
         <h3 class="blog-title"><a href="{{ route('blog.show',$post) }}">{{ $post->title }}</a></h3>
         <p class="blog-excerpt">{{ $post->excerpt }}</p>
-        <div class="blog-footer"><span>{{ $post->author }}</span><a href="{{ route('blog.show',$post) }}">Read More →</a></div>
+        <div class="blog-footer"><span>{{ $post->author }}</span><a href="{{ route('blog.show',$post) }}">Read More <i class="fas fa-arrow-right"></i></a></div>
       </div>
       @endforeach
     </div>
@@ -243,8 +259,8 @@
     <h2 class="section-title" style="color:#fff">Ready to Go Electric?</h2>
     <p style="color:#8b949e;font-size:15px;margin-bottom:28px">Visit us at Nadiad, Gujarat or book your test ride today</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="#test-ride" class="btn-primary">🏍️ Book Free Test Ride</a>
-      <a href="{{ route('contact.index') }}" class="btn-outline">📍 Get Directions</a>
+      <a href="#test-ride" class="btn-primary"><i class="fas fa-route"></i> Book Free Test Ride</a>
+      <a href="{{ route('contact.index') }}" class="btn-outline"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
       <a href="https://wa.me/917984304504" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
   </div>

@@ -20,7 +20,7 @@
       <div class="form-group"><label>Free Shipping Above (₹)</label><input type="number" name="free_shipping_above" value="{{ $settings['free_shipping_above'] ?? 500 }}"></div>
       <div class="form-group"><label>Shipping Charge (₹)</label><input type="number" name="shipping_charge" value="{{ $settings['shipping_charge'] ?? 80 }}"></div>
     </div>
-    <button type="submit" class="a-btn" style="margin-top:8px">💾 Save Settings</button>
+    <button type="submit" class="a-btn" style="margin-top:8px"><i class="fas fa-save"></i> Save Settings</button>
   </form>
 </div>
 @endsection

@@ -9,7 +9,7 @@
       <tr>
         <td><strong>{{ $r->name }}</strong></td>
         <td>{{ $r->location }}</td>
-        <td>{{ str_repeat('★',$r->rating) }}{{ str_repeat('☆',5-$r->rating) }}</td>
+        <td>{!! str_repeat('<i class="fas fa-star"></i>',$r->rating) }}{{ str_repeat('<i class="far fa-star"></i>',5-$r->rating) !!}</td>
         <td>{{ Str::limit($r->review,80) }}</td>
         <td><span class="status-badge {{ $r->is_approved?'status-delivered':'status-pending' }}">{{ $r->is_approved?'Approved':'Pending' }}</span></td>
         <td>

@@ -11,7 +11,7 @@
         <div class="scooter-slider">
           {{-- Main Image --}}
           <div class="slider-main">
-            <img id="mainImg" src="{{ asset('storage/'.$scooter->images->first()->image_path) }}" alt="{{ $scooter->name }}" style="width:100%;height:400px;object-fit:contain;border-radius:16px">
+            <img id="mainImg" src="{{ asset('storage/'.$scooter->images->first()->image_path) }}" alt="{{ $scooter->name }}" style="width:100%;height:400px;object-fit:cover;border-radius:16px">
           </div>
           {{-- Thumbnails --}}
           @if($scooter->images->count() > 1)
@@ -38,7 +38,7 @@
 
         {{-- Specs --}}
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px">
-          @foreach([['⚡','Range',$scooter->range],['🏎️','Top Speed',$scooter->top_speed],['🔌','Charging',$scooter->charging_time],['⚙️','Motor',$scooter->motor_power]] as [$ico,$lbl,$val])
+          @foreach([['<i class="fas fa-bolt"></i>','Range',$scooter->range],['<i class="fas fa-tachometer-alt"></i>','Top Speed',$scooter->top_speed],['<i class="fas fa-plug"></i>','Charging',$scooter->charging_time],['<i class="fas fa-cog"></i>','Motor',$scooter->motor_power]] as [$ico,$lbl,$val])
           <div style="background:var(--green3);border-radius:10px;padding:14px;display:flex;gap:10px;align-items:center">
             <span style="font-size:22px">{{ $ico }}</span>
             <div><div style="font-size:15px;font-weight:700;color:var(--green-dark)">{{ $val }}</div><div style="font-size:11px;color:#338a57">{{ $lbl }}</div></div>
@@ -49,16 +49,16 @@
         @if($scooter->description)<p style="color:#555;line-height:1.8;margin-bottom:20px;font-size:14.5px">{{ $scooter->description }}</p>@endif
 
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
-          <a href="{{ route('contact.index') }}" class="btn-primary">📞 Book Now</a>
+          <a href="{{ route('contact.index') }}" class="btn-primary"><i class="fas fa-phone-alt"></i> Book Now</a>
           <a href="https://wa.me/917984304504?text=Hi!+I+am+interested+in+{{ urlencode($scooter->name) }}" target="_blank" class="btn-outline" style="color:var(--text);border-color:var(--border)"><i class="fab fa-whatsapp" style="color:#25d366"></i> WhatsApp</a>
-          <a href="#test-ride" class="btn-outline" style="color:var(--text);border-color:var(--border)">🏍️ Test Ride</a>
+          <a href="#test-ride" class="btn-outline" style="color:var(--text);border-color:var(--border)"><i class="fas fa-route"></i> Test Ride</a>
         </div>
 
         <div style="background:#f8f8f8;border-radius:10px;padding:14px;font-size:13px;color:#666">
           <div style="display:flex;gap:20px;flex-wrap:wrap">
-            <span>✅ Authorized Dealer</span>
-            <span>✅ EMI Available</span>
-            <span>✅ 1 Year Warranty</span>
+            <span><i class="fas fa-check-circle" style="color:var(--green)"></i> Authorized Dealer</span>
+            <span><i class="fas fa-check-circle" style="color:var(--green)"></i> EMI Available</span>
+            <span><i class="fas fa-check-circle" style="color:var(--green)"></i> 1 Year Warranty</span>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
     {{-- Test Ride Form --}}
     <div style="margin-top:60px" id="test-ride">
       <div class="form-card" style="max-width:540px;margin:0 auto">
-        <h3 class="form-title">🏍️ Book Test Ride – {{ $scooter->name }}</h3>
+        <h3 class="form-title"><i class="fas fa-route"></i> Book Test Ride – {{ $scooter->name }}</h3>
         @if(session('success'))<div class="alert-success mb-16">{{ session('success') }}</div>@endif
         <form method="POST" action="{{ route('test-ride.book') }}">
           @csrf
@@ -100,7 +100,7 @@
             <div class="form-group"><label>Phone *</label><input name="phone" required></div>
             <div class="form-group full"><label>Preferred Date *</label><input type="date" name="preferred_date" required min="{{ date('Y-m-d',strtotime('+1 day')) }}"></div>
           </div>
-          <button type="submit" class="submit-btn">✅ Confirm Test Ride</button>
+          <button type="submit" class="submit-btn"><i class="fas fa-check"></i> Confirm Test Ride</button>
         </form>
       </div>
     </div>

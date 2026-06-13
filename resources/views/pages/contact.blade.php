@@ -7,8 +7,8 @@
     <div class="grid-2">
       <div>
         <div class="contact-info">
-          @foreach([['📍','Address','Near Riya Party Plot, Piplag Road,<br>Nadiad, Gujarat'],['📞','Phone','<a href="tel:+917984304504">+91 79843 04504</a>'],['✉️','Email','<a href="mailto:greenwheelev03@gmail.com">greenwheelev03@gmail.com</a>'],['🕐','Business Hours','Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed']] as [$ico,$title,$val])
-          <div class="ci-item"><div class="ci-icon">{{ $ico }}</div><div><h4>{{ $title }}</h4><p>{!! $val !!}</p></div></div>
+          @foreach([['fas fa-map-marker-alt','Address','Near Riya Party Plot, Piplag Road,<br>Nadiad, Gujarat'],['fas fa-phone-alt','Phone','<a href="tel:+917984304504">+91 79843 04504</a>'],['fas fa-envelope','Email','<a href="mailto:greenwheelev03@gmail.com">greenwheelev03@gmail.com</a>'],['fas fa-clock','Business Hours','Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: Closed']] as [$ico,$title,$val])
+          <div class="ci-item"><div class="ci-icon"><i class="{{ $ico }}"></i></div><div><h4>{{ $title }}</h4><p>{!! $val !!}</p></div></div>
           @endforeach
         </div>
         <div class="map-frame" style="margin-top:24px">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="form-card">
-        <h3 class="form-title">💬 Send a Message</h3>
+        <h3 class="form-title"><i class="fas fa-comment-dots"></i> Send a Message</h3>
         @if(session('success'))<div class="alert-success">{{ session('success') }}</div>@endif
         <form method="POST" action="{{ route('contact.send') }}">
           @csrf

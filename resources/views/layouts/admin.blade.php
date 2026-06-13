@@ -14,7 +14,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <div class="brand-icon">⚡</div>
+            <div class="brand-icon"><i class="fas fa-bolt"></i></div>
             <div><div class="brand-name">Green Wheel EV</div><div class="brand-sub">Admin Panel</div></div>
         </div>
         <nav class="sidebar-nav">
@@ -51,8 +51,8 @@
             </div>
         </header>
         <div class="admin-content">
-            @if(session('success'))<div class="a-alert a-success">✅ {{ session('success') }}</div>@endif
-            @if(session('error'))<div class="a-alert a-error">❌ {{ session('error') }}</div>@endif
+            @if(session('success'))<div class="a-alert a-success"><i class="fas fa-check-circle"></i> {{ session('success') }}</div>@endif
+            @if(session('error'))<div class="a-alert a-error"><i class="fas fa-times-circle"></i> {{ session('error') }}</div>@endif
             @if($errors->any())<div class="a-alert a-error">@foreach($errors->all() as $e){{ $e }}<br>@endforeach</div>@endif
             @yield('content')
         </div>

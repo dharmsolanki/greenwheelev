@@ -2,7 +2,7 @@
 @section('title','Inventory Management')
 @section('content')
 <div class="page-actions">
-  <a href="{{ route('admin.inventory.create') }}" class="a-btn">➕ Add New Part</a>
+  <a href="{{ route('admin.inventory.create') }}" class="a-btn"><i class="fas fa-plus"></i> Add New Part</a>
   <form method="GET" style="display:flex;gap:10px;flex-wrap:wrap;margin-left:auto">
     <input type="text" name="search" value="{{ request('search') }}" placeholder="Search parts..." class="a-input">
     <select name="category" class="a-input" style="width:auto">

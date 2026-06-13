@@ -20,7 +20,7 @@
     </div>
     @else
     <div style="text-align:center;padding:60px;color:#999">
-      <div style="font-size:48px;margin-bottom:16px">📸</div>
+      <div style="font-size:48px;margin-bottom:16px"><i class="fas fa-camera"></i></div>
       <p>Gallery images coming soon!</p>
     </div>
     @endif

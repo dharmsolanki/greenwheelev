@@ -39,8 +39,8 @@
           <div class="summary-item"><span>Shipping</span><span class="green-text">{{ $total >= 500 ? 'FREE' : '₹80' }}</span></div>
           <div class="summary-total"><span>Total</span><span>₹{{ number_format($total >= 500 ? $total : $total + 80) }}</span></div>
           <div class="payment-methods" style="margin-top:20px">
-            <button onclick="placeCOD()" class="btn-cod">📦 Cash on Delivery</button>
-            <button onclick="payRazorpay()" class="btn-razorpay">💳 Pay Online (UPI/Card)</button>
+            <button onclick="placeCOD()" class="btn-cod"><i class="fas fa-money-bill-wave"></i> Cash on Delivery</button>
+            <button onclick="payRazorpay()" class="btn-razorpay"><i class="fas fa-credit-card"></i> Pay Online (UPI/Card)</button>
           </div>
         </div>
       </div>

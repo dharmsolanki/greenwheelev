@@ -22,11 +22,11 @@
     </div>
     <div class="grid-2">
       <div style="background:var(--green3);border-radius:18px;padding:32px">
-        <h3 style="font-size:22px;font-weight:700;color:#00692e;margin-bottom:14px">🎯 Our Mission</h3>
+        <h3 style="font-size:22px;font-weight:700;color:#00692e;margin-bottom:14px"><i class="fas fa-bullseye"></i> Our Mission</h3>
         <p style="color:#338a57;font-size:14.5px;line-height:1.8">To make electric mobility accessible, affordable, and dependable for every customer — contributing to a cleaner and greener India one EV at a time.</p>
       </div>
       <div style="background:#f0f0ff;border-radius:18px;padding:32px">
-        <h3 style="font-size:22px;font-weight:700;color:#1a1a5e;margin-bottom:14px">🔭 Our Vision</h3>
+        <h3 style="font-size:22px;font-weight:700;color:#1a1a5e;margin-bottom:14px"><i class="fas fa-eye"></i> Our Vision</h3>
         <p style="color:#4444aa;font-size:14.5px;line-height:1.8">To become one of India's leading EV sales, service, and dealership networks — empowering entrepreneurs and customers to embrace electric mobility.</p>
       </div>
     </div>

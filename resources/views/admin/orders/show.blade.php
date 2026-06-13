@@ -5,7 +5,7 @@
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px">
   {{-- Customer Details --}}
   <div class="admin-card">
-    <div class="card-header"><h3>👤 Customer Details</h3></div>
+    <div class="card-header"><h3><i class="fas fa-user"></i> Customer Details</h3></div>
     <div style="padding:16px">
       @foreach([['Name',$order->name],['Phone','<a href="tel:'.$order->phone.'">'.$order->phone.'</a>'],['Email',$order->email??'—'],['Address',$order->address],['City',$order->city.' - '.$order->pincode],['State',$order->state]] as [$l,$v])
       <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13.5px">
@@ -17,7 +17,7 @@
 
   {{-- Order Details --}}
   <div class="admin-card">
-    <div class="card-header"><h3>📦 Order Details</h3></div>
+    <div class="card-header"><h3><i class="fas fa-box"></i> Order Details</h3></div>
     <div style="padding:16px">
       @foreach([['Order No',$order->order_no],['Date',$order->created_at->format('d M Y H:i')],['Payment',strtoupper($order->payment_method)],['Payment ID',$order->payment_id??'—']] as [$l,$v])
       <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13.5px">
@@ -46,7 +46,7 @@
 
 {{-- Shiprocket Section --}}
 <div class="admin-card" style="max-width:900px;margin-top:20px">
-  <div class="card-header"><h3>🚚 Shiprocket Shipment</h3></div>
+  <div class="card-header"><h3><i class="fas fa-truck"></i> Shiprocket Shipment</h3></div>
   <div style="padding:16px">
     @if($order->shiprocket_order_id)
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px">
@@ -64,9 +64,9 @@
         </div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a href="{{ route('admin.orders.track',$order) }}" class="a-btn">📍 Track Live</a>
+        <a href="{{ route('admin.orders.track',$order) }}" class="a-btn"><i class="fas fa-map-marker-alt"></i> Track Live</a>
         <form method="POST" action="{{ route('admin.orders.cancel-shipment',$order) }}" onsubmit="return confirm('Cancel shipment?')">
-          @csrf <button type="submit" class="a-btn-outline" style="color:#ef4444;border-color:#ef4444">❌ Cancel Shipment</button>
+          @csrf <button type="submit" class="a-btn-outline" style="color:#ef4444;border-color:#ef4444"><i class="fas fa-times"></i> Cancel Shipment</button>
         </form>
       </div>
     @else
@@ -77,7 +77,7 @@
         </div>
         <form method="POST" action="{{ route('admin.orders.ship',$order) }}">
           @csrf
-          <button type="submit" class="a-btn">🚚 Create Shiprocket Shipment</button>
+          <button type="submit" class="a-btn"><i class="fas fa-truck"></i> Create Shiprocket Shipment</button>
         </form>
       </div>
     @endif
@@ -85,7 +85,7 @@
     {{-- Live Tracking Data --}}
     @if(isset($trackingData) && $trackingData)
     <div style="margin-top:16px;background:#f8fffe;border-radius:10px;padding:16px;border:1px solid #c0e8d0">
-      <h4 style="font-size:14px;font-weight:700;margin-bottom:12px">📍 Live Tracking</h4>
+      <h4 style="font-size:14px;font-weight:700;margin-bottom:12px"><i class="fas fa-map-marker-alt"></i> Live Tracking</h4>
       @if(isset($trackingData['shipment_track']))
         @php $track = $trackingData['shipment_track'][0] ?? []; @endphp
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:13px">
@@ -101,7 +101,7 @@
 
 {{-- Order Items --}}
 <div class="admin-card" style="max-width:900px;margin-top:20px">
-  <div class="card-header"><h3>🛒 Order Items</h3></div>
+  <div class="card-header"><h3><i class="fas fa-shopping-cart"></i> Order Items</h3></div>
   <table class="a-table">
     <thead><tr><th>Item</th><th>Price</th><th>Qty</th><th>Subtotal</th></tr></thead>
     <tbody>
@@ -125,6 +125,6 @@
 </div>
 
 <div style="margin-top:16px">
-  <a href="{{ route('admin.orders.index') }}" class="a-btn-outline">← Back to Orders</a>
+  <a href="{{ route('admin.orders.index') }}" class="a-btn-outline"><i class="fas fa-arrow-left"></i> Back to Orders</a>
 </div>
 @endsection
