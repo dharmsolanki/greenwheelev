@@ -59,7 +59,7 @@ class OrderAdminController extends Controller
                     'shiprocket_shipment_id' => $result['shipment_id'],
                     'status'                 => 'confirmed',
                 ]);
-                return back()->with('success','✅ Shipment created on Shiprocket! Order ID: '.$result['order_id']);
+                return back()->with('success','Shipment created on Shiprocket! Order ID: '.$result['order_id']);
             }
             return back()->with('error','❌ Shiprocket error: '.json_encode($result['error']));
         } catch (\Exception $e) {

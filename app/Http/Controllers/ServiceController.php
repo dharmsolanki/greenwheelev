@@ -7,6 +7,6 @@ class ServiceController extends Controller {
     public function book(Request $request) {
         $request->validate(['name'=>'required','phone'=>'required','vehicle_brand'=>'required','service_type'=>'required','preferred_date'=>'required|date|after:today','preferred_time'=>'required']);
         ServiceBooking::create($request->only('name','phone','vehicle_brand','service_type','preferred_date','preferred_time','description'));
-        return back()->with('success','✅ Service booked! Confirmation SMS will be sent to '.$request->phone);
+        return back()->with('success','Service booked! Confirmation SMS will be sent to '.$request->phone);
     }
 }

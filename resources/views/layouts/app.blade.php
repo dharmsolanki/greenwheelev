@@ -25,10 +25,16 @@
 
     <main>
         @if (session('success'))
-            <div class="alert-float alert-success">{{ session('success') }}</div>
+            <div class="alert-float alert-success">
+                <i class="fas fa-check-circle alert-icon" style="font-size:18px"></i>
+                <span>{{ session('success') }}</span>
+            </div>
         @endif
         @if (session('error'))
-            <div class="alert-float alert-error">{{ session('error') }}</div>
+            <div class="alert-float alert-error">
+                <i class="fas fa-times-circle alert-icon" style="font-size:18px"></i>
+                <span>{{ session('error') }}</span>
+            </div>
         @endif
         @yield('content')
     </main>
@@ -41,7 +47,10 @@
     <script>
         // Flash alerts auto-dismiss
         document.querySelectorAll('.alert-float').forEach(el => {
-            setTimeout(() => el.style.opacity = '0', 4000);
+            setTimeout(() => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateX(40px)';
+            }, 4000);
             setTimeout(() => el.remove(), 4500);
         });
     </script>

@@ -23,6 +23,6 @@ class ScooterController extends Controller {
     public function bookTestRide(Request $request) {
         $request->validate(['name'=>'required','phone'=>'required','preferred_date'=>'required|date|after:today','vehicle_interest'=>'required']);
         TestRideBooking::create($request->only('name','phone','preferred_date','vehicle_interest'));
-        return back()->with('success','✅ Test ride booked! We will call you to confirm.');
+        return back()->with('success','Test ride booked! We will call you to confirm.');
     }
 }

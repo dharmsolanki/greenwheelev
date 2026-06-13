@@ -1584,30 +1584,42 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* ===== ALERTS ===== */
-.alert-float {
-  position: fixed;
-  top: 76px;
-  right: 20px;
-  z-index: 9000;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: var(--shadow);
-  transition: opacity .5s;
-  max-width: 360px
+.alert-float{
+  position:fixed;top:84px;right:20px;z-index:9000;
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:10px;
+  font-size:14px;font-weight:500;
+  background:#fff;color:var(--text);
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  border-left:4px solid var(--green);
+  max-width:380px;
+  animation:slideIn .3s ease-out;
+  transition:opacity .4s, transform .4s;
 }
 
-.alert-success {
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #6ee7b7
+.alert-success{border-left-color:var(--green)}
+.alert-success .alert-icon{color:var(--green)}
+.alert-error{border-left-color:#ef4444}
+.alert-error .alert-icon{color:#ef4444}
+.notification .alert-icon{color:var(--green)}
+
+@keyframes slideIn{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:translateX(0)}
 }
 
-.alert-error {
-  background: #fee2e2;
-  color: #dc2626;
-  border: 1px solid #fca5a5
+.notification{
+  position:fixed;top:84px;right:20px;
+  display:flex;align-items:center;gap:10px;
+  background:#fff;color:var(--text);
+  padding:14px 20px;border-radius:10px;
+  font-size:13.5px;font-weight:500;
+  border-left:4px solid var(--green);
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  z-index:9999;
+  animation:slideIn .3s ease-out;
+  transition:opacity .4s, transform .4s;
+  max-width:340px;
 }
 
 /* ===== WHATSAPP ===== */
@@ -1712,23 +1724,6 @@ input[type=range]::-webkit-slider-thumb {
 
 .table tr:hover td {
   background: var(--bg-light)
-}
-
-/* ===== NOTIFICATION ===== */
-.notification {
-  position: fixed;
-  top: 76px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--green);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  z-index: 9999;
-  transition: all .3s;
-  box-shadow: 0 4px 16px rgba(0, 166, 81, .3)
 }
 
 /* ===== RESPONSIVE ===== */

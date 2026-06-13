@@ -7,6 +7,6 @@ class ContactController extends Controller {
     public function send(Request $request) {
         $request->validate(['name'=>'required','phone'=>'required','subject'=>'required','message'=>'required']);
         ContactMessage::create($request->only('name','phone','email','subject','message'));
-        return back()->with('success','✅ Message sent! We will reply within a few hours.');
+        return back()->with('success','Message sent! We will reply within a few hours.');
     }
 }

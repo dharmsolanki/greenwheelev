@@ -73,7 +73,7 @@ function addToCart(id) {
       if (badge) badge.textContent = d.count;
       // Render cart sidebar from response
       renderCart(d.cart, d.total);
-      showNotification('✅ ' + d.message);
+      showNotification('' + d.message);
       openCart();
     }
   })
