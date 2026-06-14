@@ -118,21 +118,6 @@ textarea:focus {
   flex-shrink: 0
 }
 
-.logo-text {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #fff
-}
-
-.logo-text span {
-  display: block;
-  font-size: 9px;
-  font-weight: 500;
-  color: #4aab6d;
-  letter-spacing: .5px
-}
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -1877,14 +1862,6 @@ input[type=range]::-webkit-slider-thumb {
   color: #fff;
   flex-shrink: 0;
   text-decoration: none
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-  line-height: 1
 }
 
 .logo-name {
